@@ -1,18 +1,15 @@
 // import React from 'react';
 import Typewriter from "typewriter-effect";
-import background from "../../assets/img/background1.jpg";
 
 function Home() {
   return (
-    <div
-      className="min-h-screen bg-cover bg-center"
-      style={{
-        backgroundImage: `url(${background})`,
-      }}
-    >
-      <section className="bg-black/50 text-white flex items-center justify-center h-screen">
-        <div className="container mx-auto flex flex-col items-center px-4 py-16 text-center md:py-32 md:px-10 lg:px-32 xl:max-w-3xl">
-          <h1 className="text-5xl font-bold leading-tight mb-6">
+    <section className="bg-gray-800 text-gray-100">
+	<div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
+		<div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
+			<img src="https://cdn.iconscout.com/icon/free/png-512/shopping-cart-bag-shop-shopcart-tray-favorite-13201.png" alt="" className="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128" />
+		</div>
+		<div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
+    <h1 className="text-5xl font-bold leading-tight mb-6">
             <Typewriter
               onInit={(typewriter) => {
                 typewriter
@@ -37,17 +34,13 @@ function Home() {
             for your needs. Start chatting now and discover a hassle-free
             shopping experience.
           </p>
-          <div className="flex flex-wrap justify-center">
-            <button className="px-8 py-3 m-2 text-lg font-semibold rounded bg-teal-600 text-white hover:bg-teal-700">
-              Get started
-            </button>
-            <button className="px-8 py-3 m-2 text-lg border rounded text-gray-200 border-gray-200 hover:bg-gray-200 hover:text-gray-900">
-              Learn more
-            </button>
-          </div>
-        </div>
-      </section>
-    </div>
+			<div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
+				<a rel="noopener noreferrer" href="#" className="px-8 py-3 text-lg font-semibold rounded bg-violet-400 text-gray-900">Get started</a>
+				<a rel="noopener noreferrer" href="#" className="px-8 py-3 text-lg font-semibold border rounded border-gray-100">Learn More</a>
+			</div>
+		</div>
+	</div>
+</section>
   );
 }
 

@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import {Login,Home, Nav,Footer , SignUp, Contact, AboutUs} from "./components/index.jsx";
+import {Login,Home, Nav,Footer , SignUp, Contact, Products} from "./components/index.jsx";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
         <div className="flex-grow w-full"> {/* Adjusted padding for mobile */}
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<AboutUs />} />
+            <Route path="/product" element={<Products />} />
             {/* <Route path="/post/:postId" element={<Post />} /> */}
             {/* <Route path="/search/:search" element={<Search />} /> */}
             <Route path="/contact" element={<Contact />} />
