@@ -65,7 +65,7 @@ const Nav = () => {
               alt="BlogWebsite Logo"
             />
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white ml-2">
-            NexGen ShopX
+            NexGen ShopX website for capstone
             </span>
           </a>
         </div>
