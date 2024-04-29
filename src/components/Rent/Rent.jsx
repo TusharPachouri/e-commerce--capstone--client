@@ -54,9 +54,14 @@ function Rent() {
 						</div>
 					</div>
 				</div>
-				<div className="mt-10 lg:mt-0 lg:col-start-1 lg:row-start-1">
-					<img src="https://m.media-amazon.com/images/I/81vxWpPpgNL._SL1500_.jpg" alt="" className="mx-auto rounded-lg shadow-lg bg-gray-500" />
-				</div>
+                <div className="mt-10 lg:mt-0 lg:col-start-1 lg:row-start-1">
+    <img 
+        src="https://m.media-amazon.com/images/I/81vxWpPpgNL._SL1500_.jpg" 
+        alt="" 
+        className="mx-auto rounded-lg shadow-lg bg-gray-500" 
+        style={{ width: "450px", height: "auto" }} // Adjust the width and height as needed
+    />
+</div>
 			</div>
 		</div>
 	</div>
