@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-import {Login,Home, Nav,Footer , SignUp, Contact, Products, Rent, Buy} from "./components/index.jsx";
-import { BrowserRouter, Routes, Route, } from "react-router-dom";
+import {Login,Home, Nav,Footer , SignUp, Contact, Products, Rent, Buy, RentForm} from "./components/index.jsx";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
   return (
@@ -18,7 +18,8 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/rent/:productId" element={<Rent />} />
-            <Route path="/buy/:productId" element={<Buy/>} />
+            <Route path="/buy/:productId" element={<Buy />} />
+            <Route path="/rentform" element={<RentForm />} />
           </Routes>
         </div>
         <Footer />

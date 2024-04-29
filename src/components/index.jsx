@@ -7,6 +7,7 @@ import Contact from "./ContactUs/Contact.jsx";
 import Products from "./Products/Products.jsx";
 import Rent from "./Rent/Rent.jsx";
 import Buy from "./Buy/Buy.jsx";
+import RentForm from "./RentForm/RentForm.jsx";
 export { 
     Login,
     Home,
@@ -17,4 +18,5 @@ export {
     Products,
     Rent,
     Buy,
+    RentForm,
 };
