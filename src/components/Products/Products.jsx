@@ -34,8 +34,8 @@ export default function Products() {
                                 <div className="flex flex-col flex-1 p-6">
                                     <a rel="noopener noreferrer" href="#" className="text-xs tracking-wider uppercase hover:underline text-violet-400">{product.item_name}</a>
                                     <h3 className="flex-1 py-2 text-lg font-semibold leading-snug">{product.description}</h3>
-                                    <div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-600">
-                                        <span>Rs {product.price}</span>
+                                    <div className="flex flex-wrap justify-between pt-3 space-x-2 text-l dark:text-gray-600">
+                                        <span>Rs {product.price.toLocaleString()}</span>
                                         <span>#{product.category}</span>
                                     </div>
                                     <div className="flex justify-between pt-3 space-x-2 text-xs text-gray-400">
