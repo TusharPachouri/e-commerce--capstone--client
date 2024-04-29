@@ -26,6 +26,7 @@ const Login = () => {
 
     try {
       setLoading(true); // Start loading
+      console.log(import.meta.env.VITE_REACT_APP_HOST);
 
       const response = await fetch(
         `${import.meta.env.VITE_REACT_APP_HOST}/api/v1/users/login`,
