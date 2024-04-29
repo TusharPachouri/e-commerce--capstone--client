@@ -5,4 +5,16 @@ import Footer from "./Footer/Footer.jsx";
 import SignUp from "./SignUp/SignUp.jsx";
 import Contact from "./ContactUs/Contact.jsx";
 import Products from "./Products/Products.jsx";
-export { Login, Home, Nav , Footer, SignUp, Contact, Products};
+import Rent from "./Rent/Rent.jsx";
+import Buy from "./Buy/Buy.jsx";
+export { 
+    Login,
+    Home,
+    Nav ,
+    Footer,
+    SignUp,
+    Contact,
+    Products,
+    Rent,
+    Buy,
+};
