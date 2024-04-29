@@ -1,6 +1,91 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
+import DatePicker from 'react-datepicker'; // Import DatePicker
+import 'react-datepicker/dist/react-datepicker.css'; // Import DatePicker styles
+
+function RentFormModal({ onClose }) {
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState();
+    const [name, setName] = useState('');
+    const [address, setAddress] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
+    const [totalDays, setTotalDays] = useState(0);
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      // Add your form submission logic here
+      console.log({
+        name,
+        address,
+        startDate,
+        endDate,
+        phoneNumber
+      });
+      onClose();
+    };
+  
+    const calculateTotalDays = (start, end) => {
+      const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+      const diffDays = Math.round(Math.abs((end - start) / oneDay));
+      setTotalDays(diffDays);
+    };
+  
+    const handleStartDateChange = (date) => {
+      setStartDate(date);
+      calculateTotalDays(date, endDate);
+    };
+  
+    const handleEndDateChange = (date) => {
+      setEndDate(date);
+      calculateTotalDays(startDate, date);
+    };
+  
+    return (
+      <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75 z-50">
+        <div className="bg-white p-8 rounded-lg shadow-lg w-96">
+          <h2 className="text-xl font-semibold mb-4">Rent Form</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="mb-4">
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+              <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="address" className="block text-sm font-medium text-gray-700">Address</label>
+              <input type="text" id="address" value={address} onChange={(e) => setAddress(e.target.value)} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="startDate" className="block text-sm font-medium text-gray-700">Start Date</label>
+              <DatePicker selected={startDate} onChange={handleStartDateChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="endDate" className="block text-sm font-medium text-gray-700">End Date</label>
+              <DatePicker selected={endDate} onChange={handleEndDateChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700">Phone Number</label>
+              <input type="tel" id="phoneNumber" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="totalDays" className="block text-sm font-medium text-gray-700">Total Days</label>
+              <input type="text" id="totalDays" value={totalDays} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" readOnly />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="totalPrice" className="block text-sm font-medium text-gray-700">Total Cost For {totalDays} Days</label>
+              <input type="text" id="totalDays" value={`You have to pay Rs ${totalDays*303}`} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" readOnly />
+            </div>
+            <div className="mt-4 flex justify-end">
+              <button type="submit" className="px-4 py-2 bg-indigo-600 text-white rounded-md">Add To Cart</button>
+              <button onClick={onClose} className="ml-2 px-4 py-2 bg-gray-600 text-white rounded-md">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    );
+}
 function Rent() {
+    const [isModalOpen, setIsModalOpen] = React.useState(false);
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
     return (
         <>
             <section className="bg-gray-800 text-gray-100">
@@ -46,8 +131,8 @@ function Rent() {
                                             <h4 className="text-lg mt-2 font-medium leading-6 text-gray-50">Delivery Charges :  <span className="mt-2 text-gray-400">Rs 40</span></h4>
                                         </div>
                                     </div>
-                                    <div className="flex justify-between pt-3 space-x-2 text-xs text-gray-400">
-                                        <Link to="/rentform" className="flex-1 p-3 font-semibold tracking-wide rounded-md dark:bg-violet-600 dark:text-gray-50">
+                                    <div className="flex justify-between pt-3 space-x-10 text-xs text-gray-400">
+                                        <Link to="#" className="flex-1 p-3 font-semibold  tracking-wide rounded-md dark:bg-violet-600 dark:text-gray-50 text-center" onClick={openModal}>
                                             Rent
                                         </Link>
                                         <button className="flex-1 p-3 font-semibold tracking-wide rounded-md bg-gray-700 text-white dark:bg-gray-600 dark:text-gray-50">
@@ -68,6 +153,7 @@ function Rent() {
                     </div>
                 </div>
             </section>
+            {isModalOpen && <RentFormModal onClose={closeModal} />}
         </>
     )
 }
