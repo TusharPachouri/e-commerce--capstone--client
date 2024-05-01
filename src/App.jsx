@@ -13,13 +13,21 @@ function App() {
             <Route path="/product" element={<Products />} />
             {/* <Route path="/post/:postId" element={<Post />} /> */}
             {/* <Route path="/search/:search" element={<Search />} /> */}
+            
             <Route path="/contact" element={<Contact />} />
             {/* <Route path="/profile" element={<Profile />} /> */}
             <Route path="/login" element={<Login />} />
+
             <Route path="/signup" element={<SignUp />} />
+
             <Route path="/rent/:productId" element={<Rent />} />
+
             <Route path="/buy/:productId" element={<Buy />} />
+            {/* rent form should be passed with id */}
+            {/* required details will be fetched at the components part */}
+
             <Route path="/rentform" element={<RentForm />} />
+            
           </Routes>
         </div>
         <Footer />

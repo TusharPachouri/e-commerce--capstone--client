@@ -1,9 +1,11 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { Link } from 'react-router-dom';
 import DatePicker from 'react-datepicker'; // Import DatePicker
 import 'react-datepicker/dist/react-datepicker.css'; // Import DatePicker styles
+import { useParams } from 'react-router-dom';
 
-function RentFormModal({ onClose }) {
+
+function RentFormModal({ onClose}) {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState();
     const [name, setName] = useState('');
@@ -83,6 +85,13 @@ function RentFormModal({ onClose }) {
     );
 }
 function Rent() {
+  const { productId } = useParams();
+
+  useEffect(()=>{
+    
+  },[])
+
+console.log(productId);
     const [isModalOpen, setIsModalOpen] = React.useState(false);
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
