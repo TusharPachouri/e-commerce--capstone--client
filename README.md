@@ -1,4 +1,4 @@
-# Ecoomerce Website with Rental Features
+# E-commerce Website with Rental Features
 
 This project is a full-stack e-commerce website built using React, Vite, Tailwind CSS, Node.js, Express.js, and MongoDB. It features rental functionality where users can rent products for a specified time period. Users can select specific dates to book products, and the system assigns them time slots accordingly. Additionally, the project includes user authentication, product image storage on Cloudinary, integration of a payment gateway, and an AI chatbot powered by responses generated from Gemini.
 
@@ -31,5 +31,8 @@ This project is a full-stack e-commerce website built using React, Vite, Tailwin
 ## Installation
 
 1. Clone the repository:
+
    ```bash
-   git clone <repository-url>
+
+   git clone <https://github.com/TusharPachouri/e-commerce--capstone--client.git>
+   ```
