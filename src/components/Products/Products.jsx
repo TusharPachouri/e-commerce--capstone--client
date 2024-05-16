@@ -8,7 +8,7 @@ export default function Products() {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get('https://e-commerce-capstone-server.vercel.app/api/v1/products/');
+                const response = await axios.get(`${import.meta.env.VITE_REACT_APP_HOST}/api/v1/products/`);
                 setItems(response.data.data.products);
                 console.log(items);
             } catch (error) {
