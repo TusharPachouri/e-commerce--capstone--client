@@ -86,15 +86,29 @@ function RentFormModal({ onClose}) {
 }
 function Rent() {
   const { productId } = useParams();
-
-  useEffect(()=>{
-    
-  },[])
-
+  const [product, setProduct] = useState(null);
 console.log(productId);
     const [isModalOpen, setIsModalOpen] = React.useState(false);
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
+
+    // Fetching the product details from the server
+    useEffect(() => {
+      const fetchProduct = async () => {
+          try {
+              const response = await fetch(`https://e-commerce-capstone-server.vercel.app/api/v1/products/product/${productId}`);
+              if (!response.ok) {
+                  throw new Error('Failed to fetch product');
+              }
+              const data = await response.json();
+              setProduct(data);
+          } catch (error) {
+              console.error(error);
+          }
+      };
+      fetchProduct();
+  }, [productId]);
+  console.log(product);
     return (
         <>
             <section className="bg-gray-800 text-gray-100">
