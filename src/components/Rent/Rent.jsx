@@ -98,7 +98,7 @@ function Rent() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`https://e-commerce-capstone-server.vercel.app/api/v1/products/product/${productId}`);
+        const response = await fetch(`${import.meta.env.VITE_REACT_APP_HOST}/api/v1/products/product/${productId}`);
         if (!response.ok) {
           throw new Error('Failed to fetch product');
         }
