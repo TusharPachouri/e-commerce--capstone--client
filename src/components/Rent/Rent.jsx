@@ -5,7 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css'; // Import DatePicker styles
 import { useParams } from 'react-router-dom';
 
 
-function RentFormModal({ onClose }) {
+function RentFormModal({ onClose, product, setProduct }) {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState();
   const [name, setName] = useState('');
@@ -43,7 +43,8 @@ function RentFormModal({ onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75 z-50">
+product && (
+  <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75 z-50">
       <div className="bg-white p-8 rounded-lg shadow-lg w-96">
         <h2 className="text-xl font-semibold mb-4">Rent Form</h2>
         <form onSubmit={handleSubmit}>
@@ -73,7 +74,7 @@ function RentFormModal({ onClose }) {
           </div>
           <div className="mb-4">
             <label htmlFor="totalPrice" className="block text-sm font-medium text-gray-700">Total Cost For {totalDays} Days</label>
-            <input type="text" id="totalDays" value={`You have to pay Rs ${totalDays * 303}`} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" readOnly />
+            <input type="text" id="totalDays" value={`You have to pay Rs ${totalDays * product.rentPrice}`} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" readOnly />
           </div>
           <div className="mt-4 flex justify-end">
             <button type="submit" className="px-4 py-2 bg-indigo-600 text-white rounded-md">Add To Cart</button>
@@ -82,6 +83,7 @@ function RentFormModal({ onClose }) {
         </form>
       </div>
     </div>
+  )
   );
 }
 function Rent() {
@@ -116,7 +118,6 @@ function Rent() {
           <div className="container max-w-xl p-6 py-8 mx-auto space-y-20 lg:px-8 lg:max-w-7xl">
             <div>
               <h2 className="text-3xl font-bold tracking-tight text-center sm:text-5xl text-gray-50">{product.item_name}</h2>
-              <h2 className="text-3xl font-bold tracking-tight text-center sm:text-5xl text-gray-50">{product.category}</h2>
             </div>
             <div>
               <div className="grid lg:gap-8 lg:grid-cols-2 lg:items-center">
@@ -132,8 +133,8 @@ function Rent() {
                         </div>
                       </div>
                       <div className="ml-4">
-                        <h4 className="text-lg font-medium leading-6 text-gray-50">Forged In Titanium</h4>
-                        <p className="mt-2 text-gray-400">iPhone 15 Pro Max has a strong and light aerospace-grade titanium design with a textured matte-glass back. It also features a Ceramic Shield front that’s tougher than any smartphone glass. And it’s splash, water, and dust resistant.</p>
+                        <h4 className="text-lg font-medium leading-6 text-gray-50">{product.detailTitle1}</h4>
+                        <p className="mt-2 text-gray-400">{product.detail1}</p>
                       </div>
                     </div>
                     <div className="flex">
@@ -145,13 +146,13 @@ function Rent() {
                         </div>
                       </div>
                       <div className="ml-4">
-                        <h4 className="text-lg font-medium leading-6 text-gray-50">Game Changing A17 Pro Chip</h4>
-                        <p className="mt-2 text-gray-400"> A Pro-class GPU makes mobile games feel so immersive, with rich environments and realistic characters. A17 Pro is also incredibly efficient and helps to deliver amazing all-day battery life.</p>
+                        <h4 className="text-lg font-medium leading-6 text-gray-50">{product.detailTitle2}</h4>
+                        <p className="mt-2 text-gray-400">{product.detail2}</p>
                       </div>
                     </div>
                     <div className="flex">
                       <div className="ml-4">
-                        <h4 className="text-lg font-medium leading-6 text-gray-50">Rental Cost :  <span className="mt-2 text-gray-400">Rs 500 per day</span></h4>
+                        <h4 className="text-lg font-medium leading-6 text-gray-50">Rental Cost :  <span className="mt-2 text-gray-400">Rs {product.rentPrice} per day</span></h4>
                         <h4 className="text-lg mt-2 font-medium leading-6 text-gray-50">Security Deposit :  <span className="mt-2 text-gray-400">Rs 5000</span></h4>
                         <h4 className="text-lg mt-2 font-medium leading-6 text-gray-50">Delivery Charges :  <span className="mt-2 text-gray-400">Rs 40</span></h4>
                       </div>
@@ -168,7 +169,7 @@ function Rent() {
                 </div>
                 <div className="mt-10 lg:mt-0 lg:col-start-1 lg:row-start-1">
                   <img
-                    src="https://m.media-amazon.com/images/I/81vxWpPpgNL._SL1500_.jpg"
+                    src={product.image}
                     alt=""
                     className="mx-auto rounded-lg shadow-lg bg-gray-500"
                     style={{ width: "450px", height: "auto" }} // Adjust the width and height as needed
@@ -179,8 +180,8 @@ function Rent() {
           </div>
         </section>
       )}
-      {isModalOpen && <RentFormModal onClose={closeModal} />}
-    </>
+{isModalOpen && <RentFormModal onClose={closeModal} product={product} setProduct={setProduct} />}
+</>
   )
 }
 
