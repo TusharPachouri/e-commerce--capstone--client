@@ -156,6 +156,7 @@ const Nav = () => {
                 </Link>
               </li>
               {loggedIn ? (
+                <>
                 <li>
                   <Link
                     to="/profile"
@@ -163,7 +164,16 @@ const Nav = () => {
                   >
                     Profile
                   </Link>
-                </li>
+                </li>  
+                <li>
+                  <Link
+                  to="/add-product"
+                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-700 hover:text-white md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  >
+                    Add Product
+                  </Link>
+                </li>   
+                </>
               ) : (
                 <>
                   <li>

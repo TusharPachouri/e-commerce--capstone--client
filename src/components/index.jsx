@@ -8,6 +8,7 @@ import Products from "./Products/Products.jsx";
 import Rent from "./Rent/Rent.jsx";
 import Buy from "./Buy/Buy.jsx";
 import RentForm from "./RentForm/RentForm.jsx";
+import AddProduct from "./Add Product/AddProduct.jsx";
 export { 
     Login,
     Home,
@@ -19,4 +20,5 @@ export {
     Rent,
     Buy,
     RentForm,
+    AddProduct
 };
