@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import {Login,Home, Nav,Footer , SignUp, Contact, Products, Rent, Buy, RentForm} from "./components/index.jsx";
+import {Login,Home, Nav,Footer , SignUp, Contact, Products, Rent, Buy, RentForm, AddProduct} from "./components/index.jsx";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
             {/* required details will be fetched at the components part */}
 
             <Route path="/rentform" element={<RentForm />} />
-            
+            <Route path="/add-product" element={<AddProduct />} />
           </Routes>
         </div>
         <Footer />
