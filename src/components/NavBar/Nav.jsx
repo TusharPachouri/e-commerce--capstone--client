@@ -167,12 +167,20 @@ const Nav = () => {
                 </li>
                 <li>
                   <Link
+                  to="/cart"
+                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-700 hover:text-white md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  >
+                    Cart
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     to="/profile"
                     className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-700 hover:text-white md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                   >
                     Profile
                   </Link>
-                </li>     
+                </li>
                 </>
               ) : (
                 <>
