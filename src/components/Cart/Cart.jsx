@@ -2,7 +2,7 @@ import React from 'react'
 
 function Cart() {
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-900">
+    <div className="flex justify-center items-center min-h-screen py-6 sm:py-12 bg-gray-800 text-gray-100">
       <div className="flex flex-col max-w-3xl p-6 space-y-4 sm:p-10 bg-gray-900 text-gray-100">
         <h2 className="text-xl font-semibold">Your cart</h2>
         <ul className="flex flex-col divide-y divide-gray-700">

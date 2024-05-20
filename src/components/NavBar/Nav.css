@@ -1,0 +1,6 @@
+#miniProfile {
+  display: none;
+}
+#miniProfile:hover {
+  display: block;
+}
