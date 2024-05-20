@@ -3,7 +3,7 @@ import Typewriter from "typewriter-effect";
 
 function Home() {
   return (
-    <section className="bg-gray-800 text-gray-100">
+<section className="flex flex-col min-h-screen p-6 sm:p-12 bg-gray-800 text-gray-100 flex-grow">
 	<div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
 		<div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
 			<img src="https://cdn.iconscout.com/icon/free/png-512/shopping-cart-bag-shop-shopcart-tray-favorite-13201.png" alt="" className="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128" />
