@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom';
 export default function Products() {
     const [items, setItems] = useState([]);
-    const [error, setError] = useState(null);
+    // const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -12,12 +12,13 @@ export default function Products() {
                 setItems(response.data.data.products);
                 console.log(items);
             } catch (error) {
-                setError('Error fetching data from the server.');
+                // setError('Error fetching data from the server.');
                 console.error('Error fetching data:', error);
             }
         };
         fetchProducts();
-    }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [ ]);
 
     return (
         <>

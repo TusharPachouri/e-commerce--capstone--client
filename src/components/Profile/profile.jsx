@@ -119,6 +119,7 @@ const Profile = () => {
   };
 
   return (
+    <section className="py-6 sm:py-12 bg-gray-800 text-gray-100">
     <div
       className="profile-container min-h-screen flex flex-col bg-cover"
     //   style={{ backgroundImage: `url(${backgroundImage})` }}
@@ -171,6 +172,10 @@ const Profile = () => {
                   <b className=" text-2xl text-blue-300">Username: </b>{" "}
                   <span className="text-xl ">{userData.username}</span>
                 </p>
+                <p className=" text-white text-base text-glossy">
+                  <b className=" text-2xl text-blue-300">Address: </b>{" "}
+                  <span className="text-xl ">{userData.address}</span>
+                </p>
               </div>
             </div>
           </div>
@@ -180,7 +185,7 @@ const Profile = () => {
       {/* User Posts */}
       <div className="container mx-auto py-8">
         <h2 className="text-2xl font-semibold text-white mb-4">
-          <b>My Posts: </b>
+          <b>My Products: </b>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {userPosts.map((post) => (
@@ -260,6 +265,7 @@ const Profile = () => {
         <Logout />
       </div>
     </div>
+    </section>
   );
 };
 

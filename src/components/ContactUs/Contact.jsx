@@ -1,5 +1,5 @@
 import { useState } from "react";
-import backgroundImage from "../../assets/img/background1.jpg";
+// import backgroundImage from "../../assets/img/background1.jpg";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -68,7 +68,7 @@ const Contact = () => {
                 <input
                   type="text"
                   id="name"
-                  className="input-field"
+                  className="input-field text-gray-800"
                   value={formData.name}
                   onChange={handleChange}
                 />
@@ -80,7 +80,7 @@ const Contact = () => {
                 <input
                   type="email"
                   id="email"
-                  className="input-field"
+                  className="input-field text-gray-800"
                   value={formData.email}
                   onChange={handleChange}
                 />
@@ -95,7 +95,7 @@ const Contact = () => {
                 <input
                   type="text"
                   id="contactNumber"
-                  className="input-field"
+                  className="input-field text-gray-800"
                   value={formData.contactNumber}
                   onChange={handleChange}
                 />
@@ -109,7 +109,7 @@ const Contact = () => {
                 </label>
                 <textarea
                   id="message"
-                  className="input-field h-32"
+                  className="input-field h-32 text-gray-800"
                   value={formData.message}
                   onChange={handleChange}
                 ></textarea>
