@@ -10,7 +10,7 @@ const SignUp = () => {
     fullName: "",
     password: "",
     avatar: null,
-    coverImage: null,
+    address: "",
   });
   const [loading, setLoading] = useState(false);
 
@@ -31,11 +31,12 @@ const SignUp = () => {
     formDataToSend.append("fullName", formData.fullName);
     formDataToSend.append("password", formData.password);
     formDataToSend.append("avatar", formData.avatar);
-    formDataToSend.append("coverImage", formData.coverImage);
+    formDataToSend.append("address", formData.address);
+    // formDataToSend.append("coverImage", formData.coverImage);
 
     try {
       setLoading(true); // Set loading to true when the form is submitted
-      const response = await fetch(`${import.meta.env.VITE_REACT_APP_HOST}/api/v1/users/register`, {
+      const response = await fetch(`http://localhost:8080/api/v1/users/register`, {
         method: "POST",
         body: formDataToSend,
       });
@@ -167,6 +168,24 @@ const SignUp = () => {
 
           <div>
             <label
+              htmlFor="fullName"
+              className="block text-gray-300 text-sm font-bold mb-2"
+            >
+              Address:
+            </label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              value={formData.address}
+              onChange={handleInputChange}
+              required
+              className="shadow appearance-none border border-gray-600 rounded-lg w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-700"
+            />
+          </div>
+
+          <div>
+            <label
               htmlFor="avatar"
               className="block text-gray-300 text-sm font-bold mb-2"
             >
@@ -182,23 +201,7 @@ const SignUp = () => {
             />
           </div>
 
-          <div>
-            <label
-              htmlFor="coverImage"
-              className="block text-gray-300 text-sm font-bold mb-2"
-            >
-              Cover Image:
-            </label>
-            <input
-              type="file"
-              id="coverImage"
-              name="coverImage"
-              onChange={handleFileChange}
-              required
-              className="shadow appearance-none border border-gray-600 rounded-lg w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-700"
-            />
-          </div>
-
+          
           <div>
             <button
               type="submit"
