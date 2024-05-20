@@ -1,5 +1,5 @@
 // src/pages/AddProduct.jsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AddProduct = () => {
@@ -7,30 +7,75 @@ const AddProduct = () => {
   const[description, setProductDescription] = useState("");
   const[price, setPrice] = useState("");
   const[image, setImage] = useState(null);
+  const[category, setCategory] = useState("");
   const[detail1, setDetail1] = useState("");
   const[detail2, setDetail2] = useState("");
   const[detailTitle1, setDetailTitle1] = useState("");
   const[detailTitle2, setDetailTitle2] = useState("");
   const[rentPrice, setRentPrice] = useState("");
+  const [userId, setUserId] = useState(null); // State to store the user ID
+
+  useEffect(() => {
+    const fetchUserDetails = async () => {
+      try {
+        const getCookie = (name) => {
+          const value = `; ${document.cookie}`;
+          const parts = value.split(`; ${name}=`);
+          if (parts.length === 2) return parts.pop().split(";").shift();
+        };
+        const accessToken = getCookie("accessToken");
+        const response = await fetch(
+          `http://localhost:8080/api/v1/users/user`,
+          {
+            method: "GET",
+            credentials: "include",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${accessToken}`,
+            },
+          }
+        );
+        const data = await response.json();
+        if (response.ok) {
+          if (data && data.data) {
+            setUserId(data.data._id); // Set the user ID
+          } else {
+            console.error("User details not found in response data:", data);
+          }
+        } else {
+          console.error("Response not OK:", response);
+        }
+      } catch (error) {
+        console.error("Error fetching user details:", error);
+      }
+    };
+
+    fetchUserDetails();
+  }, []); // Empty dependency array to run once on component mount
+
+
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     const formData = new FormData();
-    formData.append("name", item_name);
+    formData.append("item_name", item_name);
     formData.append("description", description);
     formData.append("price", price);
+    formData.append("category", category);
     formData.append("image", image);
     formData.append("detail1", detail1);
     formData.append("detail2", detail2);
     formData.append("detailTitle1", detailTitle1);
     formData.append("detailTitle2", detailTitle2);
     formData.append("rentPrice", rentPrice);
+    formData.append("owner", userId); // Add userId to the formData
+
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_REACT_APP_HOST}/api/v1/products/add`,
+        `http://localhost:8080/api/v1/products/add`,
         {
           method: "POST",
           credentials: "include",
@@ -41,7 +86,7 @@ const AddProduct = () => {
       if (response.ok) {
         navigate("/product"); // Navigate to products page after successful submission
       } else {
-        console.error(error, 'Failed to add product');
+        console.error('Failed to add product');
       }
     } catch (error) {
       console.error("Error adding product:", error);
@@ -77,6 +122,19 @@ const AddProduct = () => {
             required
           />
         </div>
+        <div className="mb-4">
+          <label htmlFor="description" className="block text-sm font-medium text-gray-700">
+          category
+          </label>
+          <textarea
+            id="category"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            required
+          />
+        </div>
+
         <div className="mb-4">
           <label htmlFor="price" className="block text-sm font-medium text-gray-700">
             Product Price
