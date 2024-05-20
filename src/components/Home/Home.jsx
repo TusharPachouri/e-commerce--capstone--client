@@ -1,6 +1,6 @@
 // import React from 'react';
+import { Link } from "react-router-dom";
 import Typewriter from "typewriter-effect";
-
 function Home() {
   return (
 <section className="flex flex-col min-h-screen p-6 sm:p-12 bg-gray-800 text-gray-100 flex-grow">
@@ -34,9 +34,9 @@ function Home() {
             for your needs. Start chatting now and discover a hassle-free
             shopping experience.
           </p>
-			<div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-				<a rel="noopener noreferrer" href="#" className="px-8 py-3 text-lg font-semibold rounded bg-violet-400 text-gray-900">Get started</a>
-				<a rel="noopener noreferrer" href="#" className="px-8 py-3 text-lg font-semibold border rounded border-gray-100">Learn More</a>
+			  <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
+          <Link to="/product" className="px-8 py-3 text-lg font-semibold border rounded border-gray-100">Shop Now</Link>
+          <Link to="/chat" className="px-8 py-3 text-lg font-semibold border rounded border-gray-100">Chat Now</Link>
 			</div>
 		</div>
 	</div>
