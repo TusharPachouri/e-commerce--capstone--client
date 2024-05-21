@@ -94,145 +94,153 @@ const AddProduct = () => {
   };
 
   return (
+<div className="flex justify-center items-center min-h-screen py-6 sm:py-12 bg-gray-800 text-gray-800">
+  <div className="flex flex-col max-w-3xl p-6 space-y-4 sm:p-10 bg-gray-900 text-gray-900 rounded-lg shadow-lg">
     <div className="container mx-auto p-4">
-      <h2 className="text-2xl mb-4">Add New Product</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-            Product Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            value={item_name}
-            onChange={(e) => setItem_name(e.target.value)}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-            required
-          />
+      <h2 className="text-gray-100 text-2xl mb-4">Add New Product</h2>
+      <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <div className="mb-4">
+            <label htmlFor="name" className=" block text-sm font-medium text-gray-100">
+              Product Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              value={item_name}
+              onChange={(e) => setItem_name(e.target.value)}
+              className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="description" className="block text-sm font-medium text-gray-100">
+              Product Description
+            </label>
+            <textarea
+              id="description"
+              value={description}
+              onChange={(e) => setProductDescription(e.target.value)}
+              className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="category" className="block text-sm font-medium text-gray-100">
+              Category
+            </label>
+            <input
+              type="text"
+              id="category"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="price" className="block text-sm font-medium text-gray-100">
+              Product Price
+            </label>
+            <input
+              type="number"
+              id="price"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="image" className="block text-sm font-medium text-gray-100">
+              Product Image
+            </label>
+            <input
+              type="file"
+              id="image"
+              onChange={(e) => setImage(e.target.files[0])}
+              className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              required
+            />
+          </div>
         </div>
-        <div className="mb-4">
-          <label htmlFor="description" className="block text-sm font-medium text-gray-700">
-            Product Description
-          </label>
-          <textarea
-            id="description"
-            value={description}
-            onChange={(e) => setProductDescription(e.target.value)}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="description" className="block text-sm font-medium text-gray-700">
-          category
-          </label>
-          <textarea
-            id="category"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-            required
-          />
-        </div>
-
-        <div className="mb-4">
-          <label htmlFor="price" className="block text-sm font-medium text-gray-700">
-            Product Price
-          </label>
-          <input
-            type="number"
-            id="price"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="image" className="block text-sm font-medium text-gray-700">
-            Product Image
-          </label>
-          <input
-            type="file"
-            id="image"
-            onChange={(e) => setImage(e.target.files[0])}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="price" className="block text-sm font-medium text-gray-700">
-            Detail 1
-          </label>
-          <input
-            type="text"
-            id="price"
-            value={detail1}
-            onChange={(e) => setDetail1(e.target.value)}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="price" className="block text-sm font-medium text-gray-700">
-            Detail 2
-          </label>
-          <input
-            type="text"
-            id="price"
-            value={detail2}
-            onChange={(e) => setDetail2(e.target.value)}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="price" className="block text-sm font-medium text-gray-700">
-            Detail Title 1
-          </label>
-          <input
-            type="text"
-            id="price"
-            value={detailTitle1}
-            onChange={(e) => setDetailTitle1(e.target.value)}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="price" className="block text-sm font-medium text-gray-700">
-            Detail Title 2
-          </label>
-          <input
-            type="text"
-            id="price"
-            value={detailTitle2}
-            onChange={(e) => setDetailTitle2(e.target.value)}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="price" className="block text-sm font-medium text-gray-700">
-            Rental Price
-          </label>
-          <input
-            type="text"
-            id="price"
-            value={rentPrice}
-            onChange={(e) => setRentPrice(e.target.value)}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-            required
-          />
+        <div>
+          <div className="mb-4">
+            <label htmlFor="detail1" className="block text-sm font-medium text-gray-100">
+              Detail 1
+            </label>
+            <input
+              type="text"
+              id="detail1"
+              value={detail1}
+              onChange={(e) => setDetail1(e.target.value)}
+              className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="detail2" className="block text-sm font-medium text-gray-100">
+              Detail 2
+            </label>
+            <input
+              type="text"
+              id="detail2"
+              value={detail2}
+              onChange={(e) => setDetail2(e.target.value)}
+              className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="detailTitle1" className="block text-sm font-medium text-gray-100">
+              Detail Title 1
+            </label>
+            <input
+              type="text"
+              id="detailTitle1"
+              value={detailTitle1}
+              onChange={(e) => setDetailTitle1(e.target.value)}
+              className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="detailTitle2" className="block text-sm font-medium text-gray-100">
+              Detail Title 2
+            </label>
+            <input
+              type="text"
+              id="detailTitle2"
+              value={detailTitle2}
+              onChange={(e) => setDetailTitle2(e.target.value)}
+              className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="rentPrice" className="block text-sm font-medium text-gray-100">
+              Rental Price
+            </label>
+            <input
+              type="number"
+              id="rentPrice"
+              value={rentPrice}
+              onChange={(e) => setRentPrice(e.target.value)}
+              className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              required
+            />
+          </div>
         </div>
         <button
           type="submit"
-          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:ring-4 focus:ring-blue-300"
+          className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
         >
           Add Product
         </button>
       </form>
     </div>
+  </div>
+</div>
   );
 };
 
