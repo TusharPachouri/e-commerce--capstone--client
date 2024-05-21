@@ -36,7 +36,7 @@ function Home() {
           </p>
 			  <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
           <Link to="/product" className="px-8 py-3 text-lg font-semibold border rounded border-gray-100">Shop Now</Link>
-          <Link to="/chat" className="px-8 py-3 text-lg font-semibold border rounded border-gray-100">Chat Now</Link>
+          <Link to="/contact" className="px-8 py-3 text-lg font-semibold border rounded border-gray-100">Chat Now</Link>
 			</div>
 		</div>
 	</div>
