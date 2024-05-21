@@ -75,7 +75,8 @@ const AddProduct = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:8080/api/v1/products/add`,
+        `https://e-commerce-capstone-server.vercel.app/api/v1/products/add`,
+        
         {
           method: "POST",
           credentials: "include",

@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker"; // Import DatePicker
 import "react-datepicker/dist/react-datepicker.css"; // Import DatePicker styles
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+
 // import { Navigate } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 function RentFormModal({ onClose, product}) {
+  const navigate = useNavigate();
+
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState();
   const [name, setName] = useState("");
@@ -39,6 +42,8 @@ function RentFormModal({ onClose, product}) {
       );
       console.log(response);
       if (response.ok) {
+        navigate(`/rent/${productId}`);
+        console.log(productId)
         // Navigate to products page after successful submission
         // Navigate(`/rent/${productId}`);
         console.log("Product added successfully");

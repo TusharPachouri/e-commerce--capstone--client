@@ -53,7 +53,7 @@ const Profile = () => {
       try {
         const accessToken = getCookie("accessToken");
         const response = await fetch(
-          `${import.meta.env.VITE_REACT_APP_HOST}/api/v1/posts/user`,
+          `http://localhost:8080/api/v1products/my-products`,
           {
             method: "GET",
             credentials: "include",
@@ -193,7 +193,7 @@ const Profile = () => {
       {/* User Posts */}
       <div className="container mx-auto py-8">
         <h2 className="text-2xl font-semibold text-white mb-4">
-          <b>My Products: </b>
+          {/* <b>My Products: </b> */}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {userPosts.map((post) => (
