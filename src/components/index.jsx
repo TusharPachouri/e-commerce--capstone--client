@@ -9,7 +9,7 @@ import Rent from "./Rent/Rent.jsx";
 import Buy from "./Buy/Buy.jsx";
 import RentForm from "./RentForm/RentForm.jsx";
 import AddProduct from "./Add Product/AddProduct.jsx";
-import Cart from "./Cart/Cart.jsx";
+// import Cart from "./Cart/Cart.jsx";
 import Profile from "./Profile/profile.jsx";
 export { 
     Login,
@@ -23,6 +23,5 @@ export {
     Buy,
     RentForm,
     AddProduct,
-    Cart,
     Profile
 };
